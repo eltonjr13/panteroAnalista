@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analisador de PDF com Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload de Arquivo PDF</h1>
+        <form method="post" enctype="multipart/form-data" class="upload-form">
+            <div>
+                <label for="file">Selecione o PDF:</label>
+                <input type="file" name="file" accept=".pdf" required>
+            </div>
+            <input type="submit" value="Enviar">
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

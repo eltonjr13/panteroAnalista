@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados da Análise</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .section { margin: 20px 0; }
+        ul { list-style-type: none; padding: 0; }
+    </style>
+</head>
+<body>
+    <h1>Resultados da Análise</h1>
+    
+    <div class="section">
+        <h2>Datas Encontradas:</h2>
+        <ul>
+            {% for date in results.dates %}
+                <li>{{ date }}</li>
+            {% endfor %}
+            {% if not results.dates %}
+                <li>Nenhuma data encontrada</li>
+            {% endif %}
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h2>Nomes Próprios:</h2>
+        <ul>
+            {% for name in results.names %}
+                <li>{{ name }}</li>
+            {% endfor %}
+            {% if not results.names %}
+                <li>Nenhum nome encontrado</li>
+            {% endif %}
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h2>Valores Monetários:</h2>
+        <ul>
+            {% for money in results.money %}
+                <li>{{ money }}</li>
+            {% endfor %}
+            {% if not results.money %}
+                <li>Nenhum valor monetário encontrado</li>
+            {% endif %}
+        </ul>
+    </div>
+    
+    <p><a href="{{ url_for('static', filename=txt_path.split('output\\')[1]) }}" download>Baixar resultados em .txt</a></p>
+    <p><a href="/">Analisar outro arquivo</a></p>
+</body>
+</html>

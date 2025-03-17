@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot do PDF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Chatbot do PDF: {{ filename }}</h1>
+        <div class="chat-container">
+            <div class="chat-messages">
+                {% for msg in messages %}
+                    <div class="message {{ msg.type }}">{{ msg.content }}</div>
+                {% endfor %}
+            </div>
+            <form method="post" action="{{ url_for('chat', filename=filename) }}" class="chat-form">
+                <input type="text" name="question" placeholder="Faça uma pergunta sobre o PDF" required>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+        <div class="links">
+            <a href="{{ url_for('serve_output', filename=txt_path.split('output\\')[1]) }}" download>Baixar resultados básicos em .txt</a>
+            <a href="/">Enviar outro PDF</a>
+        </div>
+    </div>
+</body>
+</html>

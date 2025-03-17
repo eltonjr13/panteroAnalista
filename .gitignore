@@ -1,0 +1,15 @@
+# Ambiente virtual
+.venv/
+
+# Arquivos temporários
+uploads/
+output/
+
+# Arquivos de ambiente
+.env
+
+# Cache e logs
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
